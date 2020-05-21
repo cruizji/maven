@@ -4,7 +4,14 @@ pipeline {
     
     environment {
        PASS = credentials('registry-dockerhub')
-    } 
+    }
+    scm {
+        git('git://github.com/cruizji/maven.git')
+    }
+    triggers {
+        scm('H/1 * * * *')
+    }
+ 
 
     stages {
 
